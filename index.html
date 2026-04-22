@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Resultados</title>
+</head>
+<body>
+  <h1>Resultados del procesamiento</h1>
+  <pre id="contenido"></pre>
+  <script>
+    fetch("resultado.txt")
+      .then(response => response.text())
+      .then(data => document.getElementById("contenido").textContent = data);
+  </script>
+</body>
+</html>
+
