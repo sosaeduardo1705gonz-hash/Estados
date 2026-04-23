@@ -1,0 +1,30 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.10
+    commands:
+      - echo "Instalando dependencias..."
+      - pip install --upgrade pip
+  pre_build:
+    commands:
+      - echo "Validando archivos de entrada..."
+      - ls -l Estados.txt
+  build:
+    commands:
+      - echo "Ejecutando script de procesamiento..."
+      - python procesar.py
+      - echo "Verificando que resultado.txt fue generado..."
+      - test -f resultado.txt && echo "resultado.txt OK" || exit 1
+  post_build:
+    commands:
+      - echo "Build finalizado correctamente."
+
+artifacts:
+  files:
+    - index.html
+    - resultado.txt
+    - Estados.txt
+    - procesar.py
+
