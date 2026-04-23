@@ -14,7 +14,7 @@ phases:
   build:
     commands:
       - echo "Ejecutando script de procesamiento..."
-      - python procesar.py
+      - python Procesar.py
       - echo "Verificando que resultado.txt fue generado..."
       - test -f resultado.txt && echo "resultado.txt OK" || exit 1
   post_build:
@@ -26,5 +26,5 @@ artifacts:
     - index.html
     - resultado.txt
     - Estados.txt
-    - procesar.py
+    - Procesar.py
 
